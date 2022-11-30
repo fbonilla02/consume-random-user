@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import { FavoritoComponent } from "./components/FavoritoComponent"
-
+import FavoritoComponent from "./components/FavoritoComponent"
 import { user } from "./context/userContext"
 
 
