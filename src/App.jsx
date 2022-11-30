@@ -1,17 +1,28 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { FavoritoComponent } from "./components/FavoritoComponent"
 
 import { user } from "./context/userContext"
 
 
+
 function App() {
-  const {usuario, getData, favorite} = user()
+  const {usuario, getData } = user()
+  const [favorito, setFavorito] = useState([])
 
   useEffect(()=>{
     getData()
   },[])
+  const saveFav= (person) =>{
+    if(favorito.length === 0){
+      setFavorito(person)
+      console.log("no hay nada");
+    }else{
+      setFavorito([...favorito, person])
+    }
+  }
+  
 
-
-  console.log(usuario);
+  console.log(favorito);
   return (
     <>
      {usuario.map(data =>
@@ -24,7 +35,12 @@ function App() {
       </div>
      )}
      <button onClick={()=>{getData()}}>Generar</button>
-     <button onClick={()=>{favorite(usuario)}}>Favorito</button>
+     <button onClick={()=>{saveFav(usuario)}}>Favorito</button>
+     <section>
+     <FavoritoComponent>
+     {favorito}
+     </FavoritoComponent>
+     </section>
     </>
   )
 }

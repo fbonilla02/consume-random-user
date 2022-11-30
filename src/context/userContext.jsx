@@ -21,20 +21,9 @@ export default function UserContextProvider({children}) {
         setUsuario(response)
     }
 
-    const favorite = (value)=>{
-        console.log("xd:", value);
-        const personFav = []
-        if(personFav.length === 0){
-            personFav.push(value)
-            localStorage.setItem('favorito', JSON.stringify(personFav));
-        }else{
-            personFav.push(...personFav, value)
-            localStorage.setItem('favorito', JSON.stringify(personFav));
-        }
-        
-    }
+    
   return (
-    <UserContext.Provider value={{usuario, getData, favorite}}>
+    <UserContext.Provider value={{usuario, getData}}>
         {children}
     </UserContext.Provider>
   )
