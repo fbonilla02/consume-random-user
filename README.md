@@ -1,5 +1,6 @@
 # consume-random-user
 
+El proyecto esta realizado en React, usando vite como compilador
 
 ## Ejecucion del Proyecto
 
